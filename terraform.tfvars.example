@@ -1,0 +1,27 @@
+# Terraform Variables Configuration
+# Copy this file to terraform.tfvars and update with your values
+
+# AWS Configuration
+aws_region = "us-east-1"  # Change to your preferred AWS region
+
+# Project Configuration
+project_name = "sagemaker-ml-pipeline"  # Change to your preferred project name
+
+# SageMaker Configuration
+sagemaker_instance_type = "ml.m5.large"     # Training instance type
+endpoint_instance_type  = "ml.t2.medium"    # Endpoint instance type
+
+# Glue Configuration
+glue_worker_type        = "G.1X"  # Glue worker type (G.1X is smallest/cheapest)
+glue_number_of_workers  = 2       # Number of Glue workers
+
+# Optional: Custom bucket names (leave empty for auto-generated names)
+# data_bucket_name    = ""  # Will be auto-generated if empty
+# scripts_bucket_name = ""  # Will be auto-generated if empty
+
+# Tags (optional)
+common_tags = {
+  Environment = "development"
+  Owner       = "your-name"
+  Project     = "ml-pipeline"
+}
