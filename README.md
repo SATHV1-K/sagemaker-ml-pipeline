@@ -189,17 +189,6 @@ Temperature trend: increasing (+1.01°C change)
 python pipeline_manager_github.py --status my-data-bucket my-workflow
 ```
 
-## 💰 Cost Optimization
-
-This project is designed for cost-effectiveness:
-
-- **SageMaker Training**: ml.m5.large (on-demand, short duration)
-- **SageMaker Endpoints**: ml.t2.medium (lowest cost for real-time inference)
-- **Glue Jobs**: G.1X workers (smallest available) with 2 workers
-- **S3 Storage**: Standard tier with lifecycle policies
-
-**Estimated Monthly Cost**: $50-100 for development usage
-
 ## 🔧 Troubleshooting
 
 ### Common Issues
@@ -244,79 +233,9 @@ aws sagemaker list-endpoints
 aws logs describe-log-groups --log-group-name-prefix /aws/sagemaker
 ```
 
-## 🔒 Security Best Practices
-
-- ✅ No hardcoded credentials in code
-- ✅ IAM roles with minimal required permissions
-- ✅ Environment-based configuration
-- ✅ Encrypted S3 buckets
-- ✅ VPC endpoints for private communication
-
-## 🚀 Advanced Usage
-
-### Custom Training Data
-
-```python
-# Modify create_realistic_training_data.py
-# Adjust temperature ranges, features, or data volume
-TEMP_RANGE = (5, 45)  # Custom temperature range
-NUM_SAMPLES = 50000   # More training data
-```
-
-### Different ML Algorithms
-
-```python
-# Update container image in config.py
-XGBOOST_CONTAINER_IMAGE = 'your-custom-algorithm-image'
-```
-
-### Production Deployment
-
-```hcl
-# Update terraform.tfvars for production
-sagemaker_instance_type = "ml.m5.xlarge"
-endpoint_instance_type = "ml.m5.large"
-glue_number_of_workers = 10
-```
-
-## 🧹 Cleanup
-
-```bash
-# Destroy all AWS resources
-terraform destroy
-
-# Confirm deletion
-# Type 'yes' when prompted
-```
-
 ## 📚 Additional Resources
 
 - [AWS SageMaker Documentation](https://docs.aws.amazon.com/sagemaker/)
 - [AWS Glue Documentation](https://docs.aws.amazon.com/glue/)
 - [Terraform AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 - [XGBoost Algorithm](https://xgboost.readthedocs.io/)
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🆘 Support
-
-If you encounter issues:
-
-1. Check the troubleshooting section above
-2. Review AWS CloudWatch logs
-3. Verify AWS permissions and quotas
-4. Open an issue with detailed error messages
-
----
-
-**Happy ML Pipeline Building! 🚀🤖**
