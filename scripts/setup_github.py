@@ -99,12 +99,12 @@ def setup_configuration():
     print_step(3, "Setting Up Configuration")
     
     # Check if config.py exists
-    if os.path.exists('config.py'):
+    if os.path.exists('../config/config.py'):
         print("✅ config.py already exists")
         return True
     
     # Check if config.example.py exists
-    if not os.path.exists('config.example.py'):
+    if not os.path.exists('../config/config.example.py'):
         print("❌ config.example.py not found")
         return False
     
@@ -121,7 +121,7 @@ def setup_configuration():
         region = session.region_name or 'us-east-1'
         
         # Read template
-        with open('config.example.py', 'r') as f:
+        with open('../config/config.example.py', 'r') as f:
             config_content = f.read()
         
         # Replace placeholders
@@ -129,7 +129,7 @@ def setup_configuration():
         config_content = config_content.replace("os.getenv('AWS_REGION', 'us-east-1')", f"os.getenv('AWS_REGION', '{region}')")
         
         # Write config.py
-        with open('config.py', 'w') as f:
+        with open('../config/config.py', 'w') as f:
             f.write(config_content)
         
         print(f"✅ config.py created with:")
@@ -147,12 +147,12 @@ def setup_terraform():
     print_step(4, "Setting Up Terraform")
     
     # Check if terraform.tfvars exists
-    if os.path.exists('terraform.tfvars'):
+    if os.path.exists('../config/terraform.tfvars'):
         print("✅ terraform.tfvars already exists")
         return True
     
     # Check if terraform.tfvars.example exists
-    if not os.path.exists('terraform.tfvars.example'):
+    if not os.path.exists('../config/terraform.tfvars.example'):
         print("❌ terraform.tfvars.example not found")
         return False
     
@@ -164,14 +164,14 @@ def setup_terraform():
         region = session.region_name or 'us-east-1'
         
         # Read template
-        with open('terraform.tfvars.example', 'r') as f:
+        with open('../config/terraform.tfvars.example', 'r') as f:
             tfvars_content = f.read()
         
         # Update region
         tfvars_content = tfvars_content.replace('aws_region = "us-east-1"', f'aws_region = "{region}"')
         
         # Write terraform.tfvars
-        with open('terraform.tfvars', 'w') as f:
+        with open('../config/terraform.tfvars', 'w') as f:
             f.write(tfvars_content)
         
         print(f"✅ terraform.tfvars created with region: {region}")

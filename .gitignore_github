@@ -1,0 +1,313 @@
+# SageMaker ML Pipeline - GitHub .gitignore
+
+# =============================================================================
+# SENSITIVE CONFIGURATION FILES - NEVER COMMIT THESE!
+# =============================================================================
+
+# AWS Configuration (contains account IDs and sensitive info)
+config.py
+terraform.tfvars
+
+# AWS credentials and config
+.aws/
+aws-credentials.json
+*.pem
+*.key
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# =============================================================================
+# TERRAFORM FILES
+# =============================================================================
+
+# Terraform state files (contain sensitive resource info)
+terraform.tfstate
+terraform.tfstate.backup
+terraform.tfstate.*.backup
+
+# Terraform variable files (may contain sensitive values)
+*.tfvars
+!terraform.tfvars.example
+
+# Terraform directories
+.terraform/
+.terraform.lock.hcl
+*.tfplan
+*.tfplan.*
+
+# Crash log files
+crash.log
+crash.*.log
+
+# =============================================================================
+# PYTHON FILES
+# =============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# =============================================================================
+# DATA FILES
+# =============================================================================
+
+# Large data files (should be in S3, not Git)
+*.csv
+*.parquet
+*.json
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+*.db
+*.sqlite
+*.sqlite3
+
+# Model files
+*.model
+*.joblib
+*.tar.gz
+model/
+models/
+artifacts/
+
+# Logs
+*.log
+logs/
+
+# =============================================================================
+# AWS GLUE GENERATED FILES
+# =============================================================================
+
+# Generated Glue scripts (created from templates)
+glue_scripts/*.py
+!glue_scripts/.gitkeep
+
+# =============================================================================
+# SAGEMAKER FILES
+# =============================================================================
+
+# SageMaker local mode
+.sagemaker/
+sagemaker_scripts/*.py
+!sagemaker_scripts/.gitkeep
+
+# =============================================================================
+# IDE AND EDITOR FILES
+# =============================================================================
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# =============================================================================
+# OPERATING SYSTEM FILES
+# =============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# =============================================================================
+# TEMPORARY AND CACHE FILES
+# =============================================================================
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+
+# Cache directories
+.cache/
+cache/
+.npm/
+.yarn/
+node_modules/
+
+# =============================================================================
+# PROJECT SPECIFIC
+# =============================================================================
+
+# Lambda deployment packages
+lambda_function.zip
+*.zip
+
+# Local test outputs
+test_output/
+output/
+results/
+
+# Documentation builds
+docs/_build/
+docs/build/
+
+# =============================================================================
+# KEEP THESE FILES (EXAMPLES AND TEMPLATES)
+# =============================================================================
+
+# Keep example and template files
+!config.example.py
+!terraform.tfvars.example
+!templates/
+!*.example
+!*.template
+!*_template.*
+!*_example.*
+
+# Keep README files
+!README*.md
+!readme*.md
+
+# Keep requirements and setup files
+!requirements.txt
+!setup.py
+!setup_github.py
+
+# Keep GitHub-specific files
+!*_github.py
+!*_github.*
+!.github/
+
+# =============================================================================
+# NOTES FOR CONTRIBUTORS
+# =============================================================================
+
+# This .gitignore is designed to:
+# 1. Protect sensitive AWS credentials and account information
+# 2. Prevent large data files from being committed
+# 3. Keep the repository clean and focused on code
+# 4. Maintain example/template files for easy setup
+#
+# Before committing:
+# 1. Double-check no sensitive information is included
+# 2. Ensure config.py and terraform.tfvars are not staged
+# 3. Verify no large data files are being committed
+# 4. Test that example files work for new users

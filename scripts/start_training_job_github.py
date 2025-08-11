@@ -3,7 +3,7 @@ import time
 from datetime import datetime
 
 try:
-    from config import (
+    from ..config.config import (
         AWS_REGION, 
         SAGEMAKER_ROLE_ARN, 
         XGBOOST_CONTAINER_IMAGE,

@@ -3,7 +3,7 @@ import time
 from datetime import datetime
 
 try:
-    from config import AWS_REGION, SAGEMAKER_ROLE_ARN
+    from ..config.config import AWS_REGION, SAGEMAKER_ROLE_ARN
 except ImportError:
     print("❌ config.py not found. Please copy config.example.py to config.py and update with your AWS details.")
     exit(1)

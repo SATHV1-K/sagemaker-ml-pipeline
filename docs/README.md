@@ -43,7 +43,7 @@ git clone <your-repo-url>
 cd sagemaker-ml-pipeline
 
 # Run the automated setup
-python setup_github.py
+python scripts/setup_github.py
 ```
 
 The setup script will:

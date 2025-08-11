@@ -4,7 +4,7 @@ import numpy as np
 from datetime import datetime, timedelta
 
 try:
-    from config import AWS_REGION
+    from ..config.config import AWS_REGION
 except ImportError:
     print("❌ config.py not found. Please copy config.example.py to config.py and update with your AWS details.")
     exit(1)
